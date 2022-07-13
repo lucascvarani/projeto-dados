@@ -29,6 +29,7 @@ export function Node({
           <div className="period-container">
             <div className="calendar-from">
               <DateInput
+                label="De"
                 onChangeValue={(value: Date) => setFromValue(value)}
                 value={fromValue}
                 maxDate={toValue}
@@ -36,6 +37,7 @@ export function Node({
             </div>
             <div className="calendar-to">
               <DateInput
+                label="Até"
                 onChangeValue={(value: Date) => setToValue(value)}
                 value={toValue}
                 minDate={fromValue}

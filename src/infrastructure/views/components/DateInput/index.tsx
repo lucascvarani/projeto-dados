@@ -6,17 +6,17 @@ import "./styles.scss";
 
 interface Props {
   onChangeValue: (value: Date) => void;
+  label: string;
   value: Date;
   minDate?: Date;
   maxDate?: Date;
 }
 
 function DateInput(props: Props) {
-  const { onChangeValue, value, minDate, maxDate } = props;
-  // const [value, onChange] = useState(new Date());
+  const { onChangeValue, label, value, minDate, maxDate } = props;
   return (
     <div id="date-input-component">
-      <div className="label">De</div>
+      <div className="label">{label}</div>
       <div className="date-input-container">
         <AiOutlineCalendar
           style={{ marginLeft: "5px", height: "25px", width: "25px" }}
