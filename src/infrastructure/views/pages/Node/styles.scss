@@ -3,5 +3,22 @@
 #home-screen {
     .side-and-page {
         display: flex;
+        .calendar-and-children {
+            padding: 20px;
+        }
+        .period-title {
+            margin-bottom: 10px;
+            color: #0E4DA4;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .period-container {
+            display: flex;
+            margin-bottom: 20px;
+            .calendar-to {
+                margin-left: 45px;
+            }
+        }
     }
 }

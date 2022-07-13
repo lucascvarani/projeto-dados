@@ -1,0 +1,52 @@
+#date-input-component {
+    margin-top: 7px;
+    .label {
+        position: absolute;
+        margin-top: -7px;
+        margin-left: 10px;
+        background-color: #fff;
+        color: rgba(58, 118, 202, 1);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .date-input-container {
+        border: 2px solid rgba(58, 118, 202, 1);
+        border-radius: 8px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        // width: 300px;
+        .date-input {
+            margin-left: 10px;
+            .react-date-picker {
+                .react-date-picker__wrapper {
+                    border: none;
+                    .react-date-picker__inputGroup {
+                        .react-date-picker__inputGroup__input {
+                            &:invalid {
+                                background-color: rgba(14, 77, 164, 0.2);
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                    .react-date-picker__clear-button {
+                        margin-left: 120px;
+                        margin-right: 10px;
+                    }
+                    .react-date-picker__calendar-button {
+                        display: none;
+                    }
+                }
+                .react-date-picker__calendar {
+                    .react-calendar {
+                        border: 2px solid rgba(58, 118, 202, 1);
+                        border-radius: 10px
+                    }
+                }
+            }
+        }
+    }
+
+    
+}

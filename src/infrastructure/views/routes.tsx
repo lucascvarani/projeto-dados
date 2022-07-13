@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -12,6 +12,9 @@ import { Referrals } from "./pages/Referrals";
 import { QueueTime } from "./pages/QueueTime";
 
 export function AppRoutes() {
+  const [fromValue, setFromValue] = useState(new Date());
+  const [toValue, setToValue] = useState(new Date());
+
   useEffect(() => {
     // TODO CALL TO API PASSING TOKEN TO GET INFORMATION ABOUT USER, TO DISPATCH USER TO REDUX HERE
   }, []);
@@ -22,15 +25,25 @@ export function AppRoutes() {
         <Route
           path="/general"
           element={
-            <Node>
-              <General />
+            <Node
+              setFromValue={(value: Date) => setFromValue(value)}
+              setToValue={(value: Date) => setToValue(value)}
+              fromValue={fromValue}
+              toValue={toValue}
+            >
+              <General fromValue={fromValue} toValue={toValue} />
             </Node>
           }
         />
         <Route
           path="/appointments"
           element={
-            <Node>
+            <Node
+              setFromValue={(value: Date) => setFromValue(value)}
+              setToValue={(value: Date) => setToValue(value)}
+              fromValue={fromValue}
+              toValue={toValue}
+            >
               <Appointments />
             </Node>
           }
@@ -38,7 +51,12 @@ export function AppRoutes() {
         <Route
           path="/referrals"
           element={
-            <Node>
+            <Node
+              setFromValue={(value: Date) => setFromValue(value)}
+              setToValue={(value: Date) => setToValue(value)}
+              fromValue={fromValue}
+              toValue={toValue}
+            >
               <Referrals />
             </Node>
           }
@@ -46,7 +64,12 @@ export function AppRoutes() {
         <Route
           path="/queue-time"
           element={
-            <Node>
+            <Node
+              setFromValue={(value: Date) => setFromValue(value)}
+              setToValue={(value: Date) => setToValue(value)}
+              fromValue={fromValue}
+              toValue={toValue}
+            >
               <QueueTime />
             </Node>
           }
