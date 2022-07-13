@@ -1,0 +1,20 @@
+#menu-item {
+    border-bottom: 1px solid rgba(118, 113, 113, 0.2);
+    &.top {
+        border-top: 1px solid rgba(118, 113, 113, 0.2);
+    }
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 13px 13px 13px 35px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+/* or 175% */
+    &.selected {
+        background-color: rgba(14, 77, 164, 0.2)
+    }
+    cursor: pointer;
+}

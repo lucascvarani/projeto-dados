@@ -1,7 +1,7 @@
 export interface IUser {
-  login: string
+  login: string;
 }
 
 export interface UserSliceState {
-  user: IUser
+  user: IUser;
 }
