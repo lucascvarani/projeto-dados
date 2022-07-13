@@ -6,7 +6,6 @@ import "moment/locale/pt-br";
 import store from "./infrastructure/redux/store";
 import { AppRoutes } from "./infrastructure/views/routes";
 import reportWebVitals from "./reportWebVitals";
-import "./infrastructure/views/assets/fonts/FSLola/FSLola.ttf";
 import "./styles.scss";
 
 moment.locale("pt-br");
