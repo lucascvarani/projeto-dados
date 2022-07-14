@@ -1,5 +1,29 @@
 @import './../../../../styles.scss';
 
-#home-screen {
-
+#general-screen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .total-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        .title {
+            color: #263238;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 25px;
+        }
+        .total {
+            color: rgba(14, 77, 164, 1);
+            font-size: 25px;
+            font-weight: 600;
+        }
+    }
+    .graph {
+        height: 300px;
+        width: 300px;
+    }
 }

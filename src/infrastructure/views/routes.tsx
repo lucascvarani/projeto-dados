@@ -15,6 +15,11 @@ export function AppRoutes() {
   const [fromValue, setFromValue] = useState(new Date());
   const [toValue, setToValue] = useState(new Date());
 
+  fromValue.setHours(0);
+  fromValue.setMinutes(0);
+  toValue.setHours(23);
+  toValue.setMinutes(59);
+
   useEffect(() => {
     // TODO CALL TO API PASSING TOKEN TO GET INFORMATION ABOUT USER, TO DISPATCH USER TO REDUX HERE
   }, []);
@@ -44,7 +49,7 @@ export function AppRoutes() {
               fromValue={fromValue}
               toValue={toValue}
             >
-              <Appointments />
+              <Appointments fromValue={fromValue} toValue={toValue} />
             </Node>
           }
         />

@@ -6,12 +6,12 @@ import { getFirestore } from "@firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAF93Gcj2vH3Ul2bSvDLlHKGEGrm0YA2Ic",
-  authDomain: "catto-test.firebaseapp.com",
-  projectId: "catto-test",
-  storageBucket: "catto-test.appspot.com",
-  messagingSenderId: "779926731258",
-  appId: "1:779926731258:web:9fb18caa9a25e8aaf54c43",
+  apiKey: "AIzaSyBrVMJFVYqPypACVMMUdnm3VNsTRMCT6pw",
+  authDomain: "eaki-unicamp.firebaseapp.com",
+  projectId: "eaki-unicamp",
+  storageBucket: "eaki-unicamp.appspot.com",
+  messagingSenderId: "195472509064",
+  appId: "1:195472509064:web:c78fca194d28652634373d",
 };
 
 // Initialize Firebase

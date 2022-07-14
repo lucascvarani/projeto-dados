@@ -3,7 +3,12 @@ import { addDoc, collection } from "@firebase/firestore";
 import { firestore } from "../../../../utils/firebase";
 import "./styles.scss";
 
-export function Appointments() {
+type Props = {
+  fromValue: Date;
+  toValue: Date;
+};
+
+export function Appointments({ fromValue, toValue }: Props) {
   const ref = collection(firestore, "messages");
 
   const addOnDb = () => {

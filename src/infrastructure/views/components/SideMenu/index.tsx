@@ -40,12 +40,14 @@ function SideMenu() {
         <span className="menu-header">Informações</span>
       </div>
       {menuOptions.map((item, id) => (
-        <MenuItem
-          id={id}
-          text={item.text}
-          selected={item.selected}
-          redirectTo={item.redirectTo}
-        />
+        <div key={(id + 1).toString()}>
+          <MenuItem
+            id={id}
+            text={item.text}
+            selected={item.selected}
+            redirectTo={item.redirectTo}
+          />
+        </div>
       ))}
     </div>
   );
