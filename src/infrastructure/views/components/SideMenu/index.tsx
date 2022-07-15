@@ -15,16 +15,16 @@ function SideMenu() {
       selected: window.location.pathname.includes("general"),
       redirectTo: "/general",
     },
-    {
-      text: "Consultas por Especialidade",
-      selected: window.location.pathname.includes("appointments"),
-      redirectTo: "/appointments",
-    },
-    {
-      text: "Encaminhamentos",
-      selected: window.location.pathname.includes("referrals"),
-      redirectTo: "/referrals",
-    },
+    // {
+    //   text: "Consultas por Especialidade",
+    //   selected: window.location.pathname.includes("appointments"),
+    //   redirectTo: "/appointments",
+    // },
+    // {
+    //   text: "Encaminhamentos",
+    //   selected: window.location.pathname.includes("referrals"),
+    //   redirectTo: "/referrals",
+    // },
     {
       text: "Tempo de Fila",
       selected: window.location.pathname.includes("queue-time"),

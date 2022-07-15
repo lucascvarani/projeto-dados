@@ -40,7 +40,7 @@ export function AppRoutes() {
             </Node>
           }
         />
-        <Route
+        {/* <Route
           path="/appointments"
           element={
             <Node
@@ -65,7 +65,7 @@ export function AppRoutes() {
               <Referrals />
             </Node>
           }
-        />
+        /> */}
         <Route
           path="/queue-time"
           element={
@@ -75,7 +75,7 @@ export function AppRoutes() {
               fromValue={fromValue}
               toValue={toValue}
             >
-              <QueueTime />
+              <QueueTime fromValue={fromValue} toValue={toValue} />
             </Node>
           }
         />

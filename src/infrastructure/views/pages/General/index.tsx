@@ -86,7 +86,7 @@ export function General({ fromValue, toValue }: Props) {
         data: [proceduresValue, appointmentsValue],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
-        borderWidth: 3,
+        borderWidth: 1,
       },
     ],
   };
@@ -101,7 +101,7 @@ export function General({ fromValue, toValue }: Props) {
       </div>
       <div className="divider" />
       <div className="other-informations">
-        <div className="average-title">Tempo médio de resposta</div>
+        <div className="average-title">Tempo médio de fila</div>
         <div className="average-value-container">
           <span>{timeAverageValue} minutos</span>
         </div>
