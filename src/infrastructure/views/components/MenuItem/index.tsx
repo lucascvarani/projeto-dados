@@ -4,13 +4,14 @@ import "./styles.scss";
 
 interface Props {
   id: number;
+  icon?: React.ReactNode;
   text: string;
   selected?: boolean;
   redirectTo: string;
 }
 
 function MenuItem(props: Props) {
-  const { id, text, selected, redirectTo } = props;
+  const { id, icon, text, selected, redirectTo } = props;
   const navigate = useNavigate();
   return (
     <div
@@ -18,6 +19,7 @@ function MenuItem(props: Props) {
       className={`${!id ? "top" : ""} ${selected ? "selected" : ""}`}
       onClick={() => navigate(redirectTo)}
     >
+      <div className="icon-container">{icon}</div>
       {text}
     </div>
   );

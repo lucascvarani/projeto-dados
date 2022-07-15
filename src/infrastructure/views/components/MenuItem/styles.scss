@@ -1,20 +1,28 @@
 #menu-item {
-    border-bottom: 1px solid rgba(118, 113, 113, 0.2);
-    &.top {
-        border-top: 1px solid rgba(118, 113, 113, 0.2);
+    .icon-container {
+        margin-right: 10px;
+        display: flex;
     }
-    height: 20px;
+    height: 25px;
     display: flex;
     align-items: center;
-    padding: 13px 13px 13px 35px;
+    padding: 13px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 28px;
+    color: rgba(0,0,0,0.5);
+    &:hover {
+        background-color: rgba(182,220,252,255);
+    }
+    border-radius: 5px;
 /* or 175% */
     &.selected {
-        background-color: rgba(14, 77, 164, 0.2)
+        
+        background-color: #0E4DA4;
+        color: #fff;
+        font-weight: 600;
     }
     cursor: pointer;
 }
