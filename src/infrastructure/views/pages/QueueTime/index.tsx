@@ -60,7 +60,6 @@ export function QueueTime({ fromValue, toValue }: Props) {
     const minutes = Array.from(Array(121).keys());
     const minutesCount = new Array(121).fill(0);
     let totalSeconds = 0;
-    console.log(minutes);
     querySnapshot.forEach((doc) => {
       const data = doc.data();
       if (data.date_called) {
@@ -82,11 +81,10 @@ export function QueueTime({ fromValue, toValue }: Props) {
       .filter((m) => m);
     const minutesCountSized = minutesCount.filter((m) => m);
     const stringLabels = labels.map((l) => l.toFixed(0));
-    console.log(minutesCountSized);
-    console.log(stringLabels);
     setLabelsValue(stringLabels);
     setDatasetValue(minutesCountSized);
-    setTimeAverageValue(calculateAverage(totalSeconds, count));
+    if (count) setTimeAverageValue(calculateAverage(totalSeconds, count));
+    else setTimeAverageValue("0");
 
     return querySnapshot;
   };

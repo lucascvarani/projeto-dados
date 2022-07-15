@@ -64,8 +64,11 @@ export function General({ fromValue, toValue }: Props) {
     });
     setProceduresValue(procedures);
     setAppointmentsValue(appointments);
-    // setAttendancesValue(attendances);
-    setTimeAverageValue(calculateAverage(totalSeconds, calledAttendancesCount));
+    if (calledAttendancesCount)
+      setTimeAverageValue(
+        calculateAverage(totalSeconds, calledAttendancesCount)
+      );
+    else setTimeAverageValue("0");
     return querySnapshot;
   };
 
