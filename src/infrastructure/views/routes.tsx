@@ -14,11 +14,14 @@ import { QueueTime } from "./pages/QueueTime";
 export function AppRoutes() {
   const [fromValue, setFromValue] = useState(new Date());
   const [toValue, setToValue] = useState(new Date());
-
-  fromValue.setHours(0);
-  fromValue.setMinutes(0);
-  toValue.setHours(23);
-  toValue.setMinutes(59);
+  if (fromValue) {
+    fromValue.setHours(0);
+    fromValue.setMinutes(0);
+  }
+  if (toValue) {
+    toValue.setHours(23);
+    toValue.setMinutes(59);
+  }
 
   useEffect(() => {
     // TODO CALL TO API PASSING TOKEN TO GET INFORMATION ABOUT USER, TO DISPATCH USER TO REDUX HERE
