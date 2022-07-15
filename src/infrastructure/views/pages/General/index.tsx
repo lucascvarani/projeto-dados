@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
+import moment from "moment";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Doughnut } from "react-chartjs-2";
 import { firestore } from "../../../../utils/firebase";
@@ -12,25 +13,59 @@ type Props = {
   toValue: Date;
 };
 
+interface Attendance {
+  seconds: number;
+  hc_number: string;
+  name: string;
+  token: string;
+  visit_purpose: string;
+}
+
 export function General({ fromValue, toValue }: Props) {
   const [proceduresValue, setProceduresValue] = useState<number>(0);
   const [appointmentsValue, setAppointmentsValue] = useState<number>(0);
+  // const [attendancesValue, setAttendancesValue] = useState<Attendance[]>([]);
+  const [timeAverageValue, setTimeAverageValue] = useState<string>("0");
+
+  const calculateAverage = (
+    totalSeconds: number,
+    calledAttendancesCount: number
+  ) => {
+    return (totalSeconds / 60 / calledAttendancesCount).toFixed(0);
+  };
+
   const getItem = async () => {
     const q = query(
       collection(firestore, "queue_numbers"),
       where("date", ">=", fromValue),
       where("date", "<=", toValue)
     );
-
     const querySnapshot = await getDocs(q);
+    const attendances: Attendance[] = [];
     let procedures = 0;
     let appointments = 0;
+    let totalSeconds = 0;
+    let calledAttendancesCount = 0;
     querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      if (data.date_called) {
+        calledAttendancesCount += 1;
+        totalSeconds += data.date_called.seconds - data.date.seconds;
+      }
+      attendances.push({
+        seconds: data.date.seconds,
+        hc_number: data.hc_number,
+        name: data.name,
+        token: data.token,
+        visit_purpose: data.visit_purpose,
+      });
       if (doc.data().visit_purpose === "procedure") procedures += 1;
       else if (doc.data().visit_purpose === "appointment") appointments += 1;
     });
     setProceduresValue(procedures);
     setAppointmentsValue(appointments);
+    // setAttendancesValue(attendances);
+    setTimeAverageValue(calculateAverage(totalSeconds, calledAttendancesCount));
     return querySnapshot;
   };
 
@@ -63,6 +98,13 @@ export function General({ fromValue, toValue }: Props) {
       </div>
       <div className="graph">
         <Doughnut data={data} options={{}} />
+      </div>
+      <div className="divider" />
+      <div className="other-informations">
+        <div className="average-title">Tempo médio de resposta</div>
+        <div className="average-value-container">
+          <span>{timeAverageValue} minutos</span>
+        </div>
       </div>
     </div>
   );
